@@ -51,6 +51,7 @@ struct cpufreq_interactive_cpuinfo {
 	unsigned int target_freq;
 	unsigned int floor_freq;
 	unsigned int max_freq;
+	unsigned int min_freq;
 	u64 floor_validate_time;
 	u64 hispeed_validate_time;
 	u64 max_freq_idle_start_time;
@@ -1699,6 +1700,7 @@ static int cpufreq_governor_interactive(struct cpufreq_policy *policy,
 			}
 
 			pcpu->max_freq = policy->max;
+			pcpu->min_freq = policy->min;
 		}
 		break;
 	}
